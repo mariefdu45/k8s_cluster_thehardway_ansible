@@ -1,0 +1,31 @@
+k8s_version: v1.27.0
+etcd_version: v3.4.27
+
+k8s_loadbalancer: k8s-loadbalancer
+k8s_master1: k8s-master1
+k8s_master2: k8s-master2
+k8s_master3: k8s-master3
+k8s_worker1: k8s-worker1
+k8s_worker2: k8s-worker2
+k8s_worker3: k8s-worker3
+
+k8s_loadbalancer_ip: 10.144.239.149
+k8s_master1_ip: 10.144.239.99
+k8s_master2_ip: 10.144.239.253
+k8s_master3_ip: 10.144.239.85
+k8s_worker1_ip: 10.144.239.86
+k8s_worker2_ip: 10.144.239.113
+k8s_worker3_ip: 10.144.239.60
+
+CLUSTER_NAME: cluster-mf
+CLUSTER_IP: 10.32.0.0/24
+
+APISERVER_SERVICE_IP: 10.32.0.1
+
+PKI_DIR: '/home/vagrant/certificates'
+CONF_DIR: '/home/vagrant/kubeconfig'
+BIN_DIR: '/home/vagrant/bin'
+
+
+
+

@@ -1,0 +1,38 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Creating LXD Containers
+      lxd_container:
+        name: "{{item}}"
+        state: started
+        cert_file: /root/.ssh/id_rsa.pub
+        config:
+          limits.cpu: "2"
+          limits.memory: 4GB
+          limits.memory.swap: "false"
+          linux.kernel_modules: ip_tables, ip6_tables, netlink_diag, nf_nat, overlay, br_netfilter
+          raw.lxc: |
+            lxc.apparmor.profile=unconfined
+            lxc.mount.auto=proc:rw sys:rw sys:rw
+            lxc.cgroup.devices.allow=a
+            lxc.cap.drop=
+          security.nesting: "true"
+          security.privileged: "true"
+        source:
+          type: image
+          mode: pull
+          server: https://images.linuxcontainers.org
+          protocol: simplestreams # if you get a 404, try setting protocol: simplestreams
+          alias: ubuntu/focal/amd64
+        profiles: ["default"]
+        wait_for_ipv4_addresses: true
+        timeout: 600
+      with_items:
+        - k8s-loadbalancer
+        - k8s-master1
+        - k8s-master2
+        - k8s-master3
+        - k8s-worker1
+        - k8s-worker2
+        - k8s-worker3
+

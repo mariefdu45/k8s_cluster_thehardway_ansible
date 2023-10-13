@@ -1,0 +1,16 @@
+{
+    "CN": "admin",
+    "key": {
+      "algo": "rsa",
+      "size": 2048
+    },
+    "names": [
+      {
+        "O": "system:masters",
+        "OU": "MF",
+        "L": "Orleans",
+        "ST": "Loiret",
+        "C": "FR"
+      }
+    ]
+}

@@ -1,0 +1,4 @@
+- hosts: load_balancer
+  become: true
+  roles:
+    - install_haproxy

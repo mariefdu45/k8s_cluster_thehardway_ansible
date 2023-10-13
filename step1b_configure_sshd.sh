@@ -1,0 +1,1 @@
+for i in k8s-master3; do lxc exec $i -- apt update; lxc exec $i -- apt install -y openssh-server; lxc exec $i -- mkdir -p /root/.ssh; lxc file push /root/.ssh/id_rsa.pub $i/root/.ssh/authorized_keys; done

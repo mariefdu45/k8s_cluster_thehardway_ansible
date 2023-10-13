@@ -1,0 +1,5 @@
+- name: Create Data Encryption key and config file
+  hosts: localhost
+  connection: local
+  roles:
+    - generate_data_encryption_key

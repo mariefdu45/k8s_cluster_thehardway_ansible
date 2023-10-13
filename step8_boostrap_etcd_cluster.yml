@@ -1,0 +1,4 @@
+- name: Boostrap ETCD cluster
+  hosts: k8s_masters
+  roles:
+    - bootstrap_etcd_cluster
