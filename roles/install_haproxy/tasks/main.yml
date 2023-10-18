@@ -1,14 +1,14 @@
 # task file for install_haproxy
 
 - name: Install the latest version of haproxy
-  apt:
+  package:
     name: haproxy
     state: present
 
 - name: Configure haproxy
   blockinfile:
     path: /etc/haproxy/haproxy.cfg
-    marker: "# BEGIN Adding Master IP Addresses"
+    marker: "# BEGIN Configuring haproxy"
     block: |
       frontend k8s
         bind {{k8s_loadbalancer_ip}}:6443
